@@ -1,0 +1,15 @@
+<mxfile host="app.diagrams.net" type="device">
+  <diagram name="Схема" id="page1">
+    <mxGraphModel dx="1400" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1092" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="b0" value="ПСИ-ЭКСПЕРТ    Главная | О центре | Каталог | Новости | Материалы | Контакты    Вход / роль" style="whiteSpace=wrap;html=1;fontFamily=Times New Roman;fontSize=14;strokeColor=#000000;fillColor=#ffffff;strokeWidth=1.5;fontStyle=1;" vertex="1" parent="1"><mxGeometry x="24" y="16" width="992" height="52" as="geometry"/></mxCell>
+        <mxCell id="b1" value="Мои заказы (клиент)" style="whiteSpace=wrap;html=1;fontFamily=Times New Roman;fontSize=14;strokeColor=#000000;fillColor=#ffffff;strokeWidth=1.5;fontStyle=1;" vertex="1" parent="1"><mxGeometry x="24" y="84" width="992" height="56" as="geometry"/></mxCell>
+        <mxCell id="b2" value="№ записи, статус, дата, сумма&#10;Телефон и способ связи&#10;Позиции&#10;Изменить | Удалить" style="whiteSpace=wrap;html=1;fontFamily=Times New Roman;fontSize=14;strokeColor=#000000;fillColor=#ffffff;strokeWidth=1.5;" vertex="1" parent="1"><mxGeometry x="24" y="156" width="992" height="160" as="geometry"/></mxCell>
+        <mxCell id="b3" value="Следующая запись" style="whiteSpace=wrap;html=1;fontFamily=Times New Roman;fontSize=14;strokeColor=#000000;fillColor=#ffffff;strokeWidth=1.5;" vertex="1" parent="1"><mxGeometry x="24" y="332" width="992" height="160" as="geometry"/></mxCell>
+        <mxCell id="b4" value="Пси-Эксперт · Псков · телефон · разработчик сайта" style="whiteSpace=wrap;html=1;fontFamily=Times New Roman;fontSize=14;strokeColor=#000000;fillColor=#ffffff;strokeWidth=1.5;" vertex="1" parent="1"><mxGeometry x="24" y="664" width="992" height="40" as="geometry"/></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

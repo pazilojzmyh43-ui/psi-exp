@@ -1,0 +1,23 @@
+<mxfile host="app.diagrams.net" type="device">
+  <diagram name="Схема" id="page1">
+    <mxGraphModel dx="1400" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1092" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="b0" value="ПСИ-ЭКСПЕРТ    Главная | О центре | Каталог | Новости | Материалы | Контакты    Вход / роль" style="whiteSpace=wrap;html=1;fontFamily=Times New Roman;fontSize=14;strokeColor=#000000;fillColor=#ffffff;strokeWidth=1.5;fontStyle=1;" vertex="1" parent="1"><mxGeometry x="24" y="16" width="992" height="52" as="geometry"/></mxCell>
+        <mxCell id="b1" value="Заголовок «Каталог» и пояснение иерархии" style="whiteSpace=wrap;html=1;fontFamily=Times New Roman;fontSize=14;strokeColor=#000000;fillColor=#ffffff;strokeWidth=1.5;" vertex="1" parent="1"><mxGeometry x="24" y="84" width="992" height="54" as="geometry"/></mxCell>
+        <mxCell id="b2" value="Все" style="whiteSpace=wrap;html=1;fontFamily=Times New Roman;fontSize=14;strokeColor=#000000;fillColor=#ffffff;strokeWidth=1.5;" vertex="1" parent="1"><mxGeometry x="24" y="152" width="150" height="56" as="geometry"/></mxCell>
+        <mxCell id="b3" value="Индивидуальная терапия" style="whiteSpace=wrap;html=1;fontFamily=Times New Roman;fontSize=14;strokeColor=#000000;fillColor=#ffffff;strokeWidth=1.5;" vertex="1" parent="1"><mxGeometry x="186" y="152" width="270" height="56" as="geometry"/></mxCell>
+        <mxCell id="b4" value="Специальные методы" style="whiteSpace=wrap;html=1;fontFamily=Times New Roman;fontSize=14;strokeColor=#000000;fillColor=#ffffff;strokeWidth=1.5;" vertex="1" parent="1"><mxGeometry x="468" y="152" width="250" height="56" as="geometry"/></mxCell>
+        <mxCell id="b5" value="Форматы консультаций" style="whiteSpace=wrap;html=1;fontFamily=Times New Roman;fontSize=14;strokeColor=#000000;fillColor=#ffffff;strokeWidth=1.5;" vertex="1" parent="1"><mxGeometry x="730" y="152" width="286" height="56" as="geometry"/></mxCell>
+        <mxCell id="b6" value="Название категории и описание" style="whiteSpace=wrap;html=1;fontFamily=Times New Roman;fontSize=14;strokeColor=#000000;fillColor=#ffffff;strokeWidth=1.5;" vertex="1" parent="1"><mxGeometry x="24" y="224" width="992" height="36" as="geometry"/></mxCell>
+        <mxCell id="b7" value="Изображение&#10;Название&#10;Стоимость&#10;В корзину" style="whiteSpace=wrap;html=1;fontFamily=Times New Roman;fontSize=14;strokeColor=#000000;fillColor=#ffffff;strokeWidth=1.5;" vertex="1" parent="1"><mxGeometry x="24" y="276" width="230" height="250" as="geometry"/></mxCell>
+        <mxCell id="b8" value="Карточка услуги" style="whiteSpace=wrap;html=1;fontFamily=Times New Roman;fontSize=14;strokeColor=#000000;fillColor=#ffffff;strokeWidth=1.5;" vertex="1" parent="1"><mxGeometry x="270" y="276" width="230" height="250" as="geometry"/></mxCell>
+        <mxCell id="b9" value="Карточка услуги" style="whiteSpace=wrap;html=1;fontFamily=Times New Roman;fontSize=14;strokeColor=#000000;fillColor=#ffffff;strokeWidth=1.5;" vertex="1" parent="1"><mxGeometry x="516" y="276" width="230" height="250" as="geometry"/></mxCell>
+        <mxCell id="b10" value="Карточка услуги" style="whiteSpace=wrap;html=1;fontFamily=Times New Roman;fontSize=14;strokeColor=#000000;fillColor=#ffffff;strokeWidth=1.5;" vertex="1" parent="1"><mxGeometry x="762" y="276" width="230" height="250" as="geometry"/></mxCell>
+        <mxCell id="b11" value="Следующая категория — такой же блок из пяти позиций" style="whiteSpace=wrap;html=1;fontFamily=Times New Roman;fontSize=14;strokeColor=#000000;fillColor=#ffffff;strokeWidth=1.5;" vertex="1" parent="1"><mxGeometry x="24" y="542" width="992" height="40" as="geometry"/></mxCell>
+        <mxCell id="b12" value="Пси-Эксперт · Псков · телефон · разработчик сайта" style="whiteSpace=wrap;html=1;fontFamily=Times New Roman;fontSize=14;strokeColor=#000000;fillColor=#ffffff;strokeWidth=1.5;" vertex="1" parent="1"><mxGeometry x="24" y="664" width="992" height="40" as="geometry"/></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
