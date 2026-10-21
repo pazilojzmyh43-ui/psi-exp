@@ -1,0 +1,15 @@
+{% extends "app/base.html" %}
+{% block title %}Новости — {{ company.name }}{% endblock %}
+{% block content %}
+<h1>Новости</h1>
+<p class="lead">Список по убыванию даты публикации.</p>
+{% for item in news_list %}
+<article class="news-item">
+    <p class="meta">{{ item.published_at|date:"d E Y, H:i" }}</p>
+    <h2><a href="{% url 'news_detail' item.pk %}">{{ item.title }}</a></h2>
+    <p>{{ item.text|truncatewords:40 }}</p>
+</article>
+{% empty %}
+<p>Новостей пока нет.</p>
+{% endfor %}
+{% endblock %}

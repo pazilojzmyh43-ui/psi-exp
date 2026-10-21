@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <Name>PsiExpert</Name>
+    <RootNamespace>PsiExpert</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{a7c31e04-6b2d-4f8a-9c15-2e6d4b8a91f3}</ProjectGuid>
+    <ProjectHome>.</ProjectHome>
+    <ProjectTypeGuids>{5F0BE9CA-D677-4A4D-8806-6076C0FAAD37};{349c5851-65df-11da-9384-00065b846f21};{888888a0-9f3d-457c-b088-3a5042f75d52}</ProjectTypeGuids>
+    <StartupFile>manage.py</StartupFile>
+    <SearchPath>
+    </SearchPath>
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <LaunchProvider>Django launcher</LaunchProvider>
+    <CommandLineArguments>runserver</CommandLineArguments>
+    <DjangoSettingsModule>PsiExpert.settings</DjangoSettingsModule>
+    <SuppressCollectPythonCloudServiceFiles>true</SuppressCollectPythonCloudServiceFiles>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="PsiExpert\__init__.py" />
+    <Compile Include="PsiExpert\asgi.py" />
+    <Compile Include="PsiExpert\settings.py" />
+    <Compile Include="PsiExpert\urls.py" />
+    <Compile Include="PsiExpert\wsgi.py" />
+    <Compile Include="app\__init__.py" />
+    <Compile Include="app\admin.py" />
+    <Compile Include="app\apps.py" />
+    <Compile Include="app\company.py" />
+    <Compile Include="app\context_processors.py" />
+    <Compile Include="app\decorators.py" />
+    <Compile Include="app\forms.py" />
+    <Compile Include="app\management\__init__.py" />
+    <Compile Include="app\management\commands\__init__.py" />
+    <Compile Include="app\management\commands\seed.py" />
+    <Compile Include="app\migrations\0001_initial.py" />
+    <Compile Include="app\migrations\__init__.py" />
+    <Compile Include="app\models.py" />
+    <Compile Include="app\signals.py" />
+    <Compile Include="app\tests.py" />
+    <Compile Include="app\urls.py" />
+    <Compile Include="app\views.py" />
+    <Compile Include="manage.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="PsiExpert\" />
+    <Folder Include="app\" />
+    <Folder Include="app/management\" />
+    <Folder Include="app/management/commands\" />
+    <Folder Include="app/migrations\" />
+    <Folder Include="app/static\" />
+    <Folder Include="app/static/app\" />
+    <Folder Include="app/static/app/content\" />
+    <Folder Include="app/static/app/css\" />
+    <Folder Include="app/templates\" />
+    <Folder Include="app/templates/app\" />
+    <Folder Include="app/templates/app/panel\" />
+    <Folder Include="media\" />
+    <Folder Include="media/services\" />
+    <Folder Include="media/videos\" />
+    <Folder Include="seed_media\" />
+    <Folder Include="seed_media/images\" />
+    <Folder Include="seed_media/videos\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="app\static\app\content\banner1.jpg" />
+    <Content Include="app\static\app\content\banner2.jpg" />
+    <Content Include="app\static\app\content\banner3.jpg" />
+    <Content Include="app\static\app\content\cbt_logo.png" />
+    <Content Include="app\static\app\content\emdr_logo.png" />
+    <Content Include="app\static\app\content\imtt_logo.png" />
+    <Content Include="app\static\app\content\logo_psy.png" />
+    <Content Include="app\static\app\css\site.css" />
+    <Content Include="app\templates\app\about.html" />
+    <Content Include="app\templates\app\base.html" />
+    <Content Include="app\templates\app\cart.html" />
+    <Content Include="app\templates\app\catalog.html" />
+    <Content Include="app\templates\app\checkout.html" />
+    <Content Include="app\templates\app\confirm_delete.html" />
+    <Content Include="app\templates\app\contacts.html" />
+    <Content Include="app\templates\app\home.html" />
+    <Content Include="app\templates\app\login.html" />
+    <Content Include="app\templates\app\manager_orders.html" />
+    <Content Include="app\templates\app\materials.html" />
+    <Content Include="app\templates\app\my_orders.html" />
+    <Content Include="app\templates\app\news_detail.html" />
+    <Content Include="app\templates\app\news_list.html" />
+    <Content Include="app\templates\app\order_form.html" />
+    <Content Include="app\templates\app\panel\categories.html" />
+    <Content Include="app\templates\app\panel\dashboard.html" />
+    <Content Include="app\templates\app\panel\form.html" />
+    <Content Include="app\templates\app\panel\news.html" />
+    <Content Include="app\templates\app\panel\services.html" />
+    <Content Include="app\templates\app\panel\subnav.html" />
+    <Content Include="app\templates\app\panel\users.html" />
+    <Content Include="app\templates\app\panel\videos.html" />
+    <Content Include="app\templates\app\register.html" />
+    <Content Include="app\templates\app\service_detail.html" />
+    <Content Include="db.sqlite3" />
+    <Content Include="media\services\banner1.jpg" />
+    <Content Include="media\services\banner1_3OkQgED.jpg" />
+    <Content Include="media\services\banner1_3euDjk0.jpg" />
+    <Content Include="media\services\banner1_n2izDEb.jpg" />
+    <Content Include="media\services\banner2.jpg" />
+    <Content Include="media\services\banner2_InRi2cY.jpg" />
+    <Content Include="media\services\banner2_rrVyf8a.jpg" />
+    <Content Include="media\services\banner2_tvueiCr.jpg" />
+    <Content Include="media\services\banner3.jpg" />
+    <Content Include="media\services\banner3_4QlOvae.jpg" />
+    <Content Include="media\services\banner3_SdIhMjr.jpg" />
+    <Content Include="media\services\banner3_aSijjki.jpg" />
+    <Content Include="media\services\cbt_logo.png" />
+    <Content Include="media\services\emdr_logo.png" />
+    <Content Include="media\services\imtt_logo.png" />
+    <Content Include="media\videos\video1.mp4" />
+    <Content Include="media\videos\video2.mp4" />
+    <Content Include="requirements.txt" />
+    <Content Include="seed_media\images\banner1.jpg" />
+    <Content Include="seed_media\images\banner2.jpg" />
+    <Content Include="seed_media\images\banner3.jpg" />
+    <Content Include="seed_media\images\cbt_logo.png" />
+    <Content Include="seed_media\images\emdr_logo.png" />
+    <Content Include="seed_media\images\imtt_logo.png" />
+    <Content Include="seed_media\videos\video1.mp4" />
+    <Content Include="seed_media\videos\video2.mp4" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.Django.targets" />
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <AutoAssignPort>True</AutoAssignPort>
+          <UseCustomServer>True</UseCustomServer>
+          <CustomServerUrl>http://127.0.0.1:8000/</CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

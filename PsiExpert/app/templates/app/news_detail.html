@@ -1,0 +1,7 @@
+{% extends "app/base.html" %}
+{% block title %}{{ item.title }} — {{ company.name }}{% endblock %}
+{% block content %}
+<p class="meta"><a href="{% url 'news_list' %}">Все новости</a> · {{ item.published_at|date:"d E Y, H:i" }}</p>
+<h1>{{ item.title }}</h1>
+<div>{{ item.text|linebreaks }}</div>
+{% endblock %}

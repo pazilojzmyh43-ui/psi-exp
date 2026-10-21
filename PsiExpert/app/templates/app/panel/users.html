@@ -1,0 +1,32 @@
+{% extends "app/base.html" %}
+{% block title %}Пользователи — панель{% endblock %}
+{% block content %}
+<h1>Пользователи</h1>
+{% include "app/panel/subnav.html" %}
+<div class="layout">
+    <form method="post" class="card">
+        <h3>Зарегистрировать менеджера</h3>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn" type="submit">Создать менеджера</button>
+    </form>
+    <div>
+        <table class="table">
+            <thead><tr><th>Логин</th><th>Роль</th><th></th></tr></thead>
+            <tbody>
+                {% for person in users %}
+                <tr>
+                    <td>{{ person.username }}<br><span class="meta">{{ person.get_full_name }}</span></td>
+                    <td>{{ person.profile.get_role_display }}</td>
+                    <td>
+                        {% if person.profile.role == 'client' or person.profile.role == 'manager' %}
+                        <a href="{% url 'user_delete' person.pk %}">Удалить</a>
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

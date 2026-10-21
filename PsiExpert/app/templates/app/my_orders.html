@@ -1,0 +1,25 @@
+{% extends "app/base.html" %}
+{% block title %}Мои заказы — {{ company.name }}{% endblock %}
+{% block content %}
+<h1>Мои заказы</h1>
+<p class="lead">История записей. Пока статус «Новая» или «В работе», можно поправить контакты или удалить запись.</p>
+{% for order in orders %}
+<article class="card" style="margin-bottom:14px;">
+    <h3>Запись №{{ order.pk }} · {{ order.get_status_display }}</h3>
+    <p class="meta">{{ order.created_at|date:"d.m.Y H:i" }} · {{ order.total_label }}</p>
+    <p>{{ order.phone }} · {{ order.contact }}</p>
+    {% if order.comment %}<p>{{ order.comment }}</p>{% endif %}
+    <ul>
+        {% for item in order.items.all %}
+        <li>{{ item.service_name }} × {{ item.quantity }} — {{ item.line_label }}</li>
+        {% endfor %}
+    </ul>
+    {% if order.client_can_change %}
+    <a class="btn ghost" href="{% url 'order_edit' order.pk %}">Изменить</a>
+    <a class="btn ghost" href="{% url 'order_delete' order.pk %}">Удалить</a>
+    {% endif %}
+</article>
+{% empty %}
+<p>Записей ещё нет.</p>
+{% endfor %}
+{% endblock %}

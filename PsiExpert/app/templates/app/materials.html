@@ -1,0 +1,20 @@
+{% extends "app/base.html" %}
+{% block title %}Полезные материалы — {{ company.name }}{% endblock %}
+{% block content %}
+<h1>Полезные материалы</h1>
+<p class="lead">Отдельная страница с видео. Ролики хранятся в базе и открываются прямо здесь. Это не замена консультации.</p>
+{% for video in videos %}
+<article class="video-block card">
+    <h2>{{ video.title }}</h2>
+    <p>{{ video.description }}</p>
+    {% if video.video %}
+    <video controls preload="metadata">
+        <source src="{{ video.video.url }}" type="video/mp4">
+        Браузер не воспроизводит этот файл.
+    </video>
+    {% endif %}
+</article>
+{% empty %}
+<p>Материалы ещё не добавлены.</p>
+{% endfor %}
+{% endblock %}

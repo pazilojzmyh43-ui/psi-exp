@@ -1,0 +1,22 @@
+{% extends "app/base.html" %}
+{% block title %}Новости — панель{% endblock %}
+{% block content %}
+<h1>Новости</h1>
+{% include "app/panel/subnav.html" %}
+<p><a class="btn" href="{% url 'news_add' %}">Добавить новость</a></p>
+<table class="table">
+    <thead><tr><th>Заголовок</th><th>Дата</th><th></th></tr></thead>
+    <tbody>
+        {% for item in news_list %}
+        <tr>
+            <td>{{ item.title }}</td>
+            <td>{{ item.published_at|date:"d.m.Y" }}</td>
+            <td>
+                <a href="{% url 'news_edit' item.pk %}">Изменить</a>
+                · <a href="{% url 'news_delete' item.pk %}">Удалить</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends "app/base.html" %}
+{% block title %}Запись №{{ order.pk }} — {{ company.name }}{% endblock %}
+{% block content %}
+<h1>Запись №{{ order.pk }}</h1>
+<p class="meta">Состав заказа не меняется. Можно обновить телефон, способ связи и комментарий.</p>
+<form method="post" class="card auth-card">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="btn" type="submit">Сохранить</button>
+</form>
+{% endblock %}

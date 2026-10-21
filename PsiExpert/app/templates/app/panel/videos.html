@@ -1,0 +1,21 @@
+{% extends "app/base.html" %}
+{% block title %}Видео — панель{% endblock %}
+{% block content %}
+<h1>Полезные материалы</h1>
+{% include "app/panel/subnav.html" %}
+<p><a class="btn" href="{% url 'video_add' %}">Добавить видео</a></p>
+<table class="table">
+    <thead><tr><th>Название</th><th></th></tr></thead>
+    <tbody>
+        {% for video in videos %}
+        <tr>
+            <td>{{ video.title }}</td>
+            <td>
+                <a href="{% url 'video_edit' video.pk %}">Изменить</a>
+                · <a href="{% url 'video_delete' video.pk %}">Удалить</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

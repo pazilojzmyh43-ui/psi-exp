@@ -1,0 +1,13 @@
+{% extends "app/base.html" %}
+{% block title %}Панель — {{ company.name }}{% endblock %}
+{% block content %}
+<h1>Панель администратора</h1>
+{% include "app/panel/subnav.html" %}
+<div class="grid cols-3">
+    <a class="card" href="{% url 'panel_categories' %}"><p class="stat">{{ counts.categories }}</p><h3>Категории</h3></a>
+    <a class="card" href="{% url 'panel_services' %}"><p class="stat">{{ counts.services }}</p><h3>Услуги</h3></a>
+    <a class="card" href="{% url 'panel_news' %}"><p class="stat">{{ counts.news }}</p><h3>Новости</h3></a>
+    <a class="card" href="{% url 'panel_videos' %}"><p class="stat">{{ counts.videos }}</p><h3>Видео</h3></a>
+    <a class="card" href="{% url 'panel_users' %}"><p class="stat">{{ counts.users }}</p><h3>Пользователи</h3></a>
+</div>
+{% endblock %}

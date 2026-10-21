@@ -1,0 +1,21 @@
+{% extends "app/base.html" %}
+{% block title %}Оформление записи — {{ company.name }}{% endblock %}
+{% block content %}
+<h1>Оформление записи</h1>
+<div class="layout">
+    <form method="post" class="card">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn" type="submit">Отправить запись</button>
+    </form>
+    <aside class="card">
+        <h3>Состав</h3>
+        <ul>
+            {% for item in items %}
+            <li>{{ item.service.name }} × {{ item.quantity }} — {{ item.line_label }}</li>
+            {% endfor %}
+        </ul>
+        <p class="price">Итого: {{ cart.total_label }}</p>
+    </aside>
+</div>
+{% endblock %}

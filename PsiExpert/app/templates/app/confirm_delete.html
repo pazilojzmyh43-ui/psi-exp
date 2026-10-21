@@ -1,0 +1,11 @@
+{% extends "app/base.html" %}
+{% block title %}{{ title }}{% endblock %}
+{% block content %}
+<h1>{{ title }}</h1>
+<p>{{ object_label }}</p>
+<form method="post">
+    {% csrf_token %}
+    <button class="btn clay" type="submit">Удалить</button>
+    <a class="btn ghost" href="javascript:history.back()">Назад</a>
+</form>
+{% endblock %}

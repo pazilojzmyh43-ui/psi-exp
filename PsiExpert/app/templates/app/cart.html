@@ -1,0 +1,39 @@
+{% extends "app/base.html" %}
+{% block title %}Корзина — {{ company.name }}{% endblock %}
+{% block content %}
+<h1>Корзина записи</h1>
+<p class="lead">Страница только для клиента: здесь текущий заказ, его можно поправить до оформления.</p>
+{% if items %}
+<table class="table">
+    <thead>
+        <tr><th>Услуга</th><th>Категория</th><th>Количество</th><th>Сумма</th><th></th></tr>
+    </thead>
+    <tbody>
+        {% for item in items %}
+        <tr>
+            <td><a href="{% url 'service_detail' item.service.pk %}">{{ item.service.name }}</a><br><span class="meta">{{ item.service.price_label }}</span></td>
+            <td>{{ item.service.category.name }}</td>
+            <td>
+                <form class="line-form" method="post" action="{% url 'cart_update' item.pk %}">
+                    {% csrf_token %}
+                    <input type="number" name="quantity" min="0" max="8" value="{{ item.quantity }}">
+                    <button class="btn ghost" type="submit">Ок</button>
+                </form>
+            </td>
+            <td>{{ item.line_label }}</td>
+            <td>
+                <form method="post" action="{% url 'cart_remove' item.pk %}">
+                    {% csrf_token %}
+                    <button class="btn ghost" type="submit">Убрать</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<p class="price">Итого: {{ cart.total_label }}</p>
+<p><a class="btn" href="{% url 'checkout' %}">Оформить запись</a></p>
+{% else %}
+<p>Корзина пуста. Выберите услугу в <a href="{% url 'catalog' %}">каталоге</a>.</p>
+{% endif %}
+{% endblock %}

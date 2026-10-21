@@ -1,0 +1,44 @@
+{% extends "app/base.html" %}
+{% block title %}Каталог — {{ company.name }}{% endblock %}
+{% block content %}
+<h1>Каталог</h1>
+<p class="lead">Три категории, в каждой несколько услуг. Страницы собираются из базы, а не из заготовок в шаблоне.</p>
+<div class="chips">
+    <a class="{% if not current %}is-active{% endif %}" href="{% url 'catalog' %}">Все</a>
+    {% for category in all_categories %}
+    <a class="{% if current.pk == category.pk %}is-active{% endif %}" href="{% url 'catalog_category' category.slug %}">{{ category.name }}</a>
+    {% endfor %}
+</div>
+{% for category in categories %}
+<section style="margin-bottom:28px;">
+    <h2>{{ category.name }}</h2>
+    <p class="meta">{{ category.description }}</p>
+    <div class="grid cols-3">
+        {% for service in category.services.all %}
+        <article class="card">
+            {% if service.image %}
+            <img class="cover" src="{{ service.image.url }}" alt="">
+            {% endif %}
+            <h3><a href="{% url 'service_detail' service.pk %}">{{ service.name }}</a></h3>
+            <p class="meta">{{ service.duration }}{% if service.method %} · {{ service.method }}{% endif %}</p>
+            <p class="price">{{ service.price_label }}</p>
+            {% if user_role == 'client' and service.available %}
+            <form method="post" action="{% url 'cart_add' service.pk %}">
+                {% csrf_token %}
+                <button class="btn" type="submit">В корзину</button>
+            </form>
+            {% elif not service.available %}
+            <p class="meta">Сейчас нет записи</p>
+            {% else %}
+            <a href="{% url 'service_detail' service.pk %}">Подробнее</a>
+            {% endif %}
+        </article>
+        {% empty %}
+        <p>В этой категории пока нет услуг.</p>
+        {% endfor %}
+    </div>
+</section>
+{% empty %}
+<p>Каталог пуст.</p>
+{% endfor %}
+{% endblock %}

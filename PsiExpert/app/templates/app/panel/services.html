@@ -1,0 +1,23 @@
+{% extends "app/base.html" %}
+{% block title %}Услуги — панель{% endblock %}
+{% block content %}
+<h1>Услуги каталога</h1>
+{% include "app/panel/subnav.html" %}
+<p><a class="btn" href="{% url 'service_add' %}">Добавить услугу</a></p>
+<table class="table">
+    <thead><tr><th>Название</th><th>Категория</th><th>Цена</th><th></th></tr></thead>
+    <tbody>
+        {% for service in services %}
+        <tr>
+            <td>{{ service.name }}</td>
+            <td>{{ service.category.name }}</td>
+            <td>{{ service.price_label }}</td>
+            <td>
+                <a href="{% url 'service_edit' service.pk %}">Изменить</a>
+                · <a href="{% url 'service_delete' service.pk %}">Удалить</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

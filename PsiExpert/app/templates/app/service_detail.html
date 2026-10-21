@@ -1,0 +1,43 @@
+{% extends "app/base.html" %}
+{% block title %}{{ service.name }} — {{ company.name }}{% endblock %}
+{% block content %}
+<p class="meta"><a href="{% url 'catalog_category' service.category.slug %}">{{ service.category.name }}</a></p>
+<div class="layout">
+    <div>
+        {% if service.image %}
+        <img class="service-photo large" src="{{ service.image.url }}" alt="">
+        {% endif %}
+    </div>
+    <div>
+        <h1>{{ service.name }}</h1>
+        <p class="price" style="font-size:1.4rem;">{{ service.price_label }}</p>
+        <p>{{ service.description }}</p>
+        <p class="meta">Длительность: {{ service.duration }}{% if service.method %}<br>Метод: {{ service.method }}{% endif %}</p>
+        {% if service.available %}
+            {% if user_role == 'client' %}
+            <form method="post" action="{% url 'cart_add' service.pk %}">
+                {% csrf_token %}
+                <button class="btn" type="submit">Добавить в корзину</button>
+            </form>
+            {% elif user.is_authenticated %}
+            <p class="meta">Запись через корзину доступна клиенту.</p>
+            {% else %}
+            <a class="btn" href="{% url 'login' %}?next={{ request.path }}">Войти и записаться</a>
+            {% endif %}
+        {% else %}
+        <p>Сейчас на эту услугу нет записи.</p>
+        {% endif %}
+    </div>
+</div>
+{% if related %}
+<h2 style="margin-top:32px;">Ещё в этой категории</h2>
+<div class="grid cols-3">
+    {% for item in related %}
+    <a class="card" href="{% url 'service_detail' item.pk %}" style="text-decoration:none;color:inherit;">
+        <h3>{{ item.name }}</h3>
+        <p class="price">{{ item.price_label }}</p>
+    </a>
+    {% endfor %}
+</div>
+{% endif %}
+{% endblock %}

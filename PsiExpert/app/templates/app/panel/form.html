@@ -1,0 +1,11 @@
+{% extends "app/base.html" %}
+{% block title %}{{ title }} — {{ company.name }}{% endblock %}
+{% block content %}
+<h1>{{ title }}</h1>
+{% include "app/panel/subnav.html" %}
+<form method="post" enctype="multipart/form-data" class="card" style="max-width:640px;">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="btn" type="submit">Сохранить</button>
+</form>
+{% endblock %}

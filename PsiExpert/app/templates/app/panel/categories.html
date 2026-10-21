@@ -1,0 +1,23 @@
+{% extends "app/base.html" %}
+{% block title %}Категории — панель{% endblock %}
+{% block content %}
+<h1>Категории</h1>
+{% include "app/panel/subnav.html" %}
+<p><a class="btn" href="{% url 'category_add' %}">Добавить категорию</a></p>
+<p class="meta">Категория с тем же названием, даже в другом регистре, не сохранится.</p>
+<table class="table">
+    <thead><tr><th>Название</th><th>Адрес</th><th></th></tr></thead>
+    <tbody>
+        {% for category in categories %}
+        <tr>
+            <td>{{ category.name }}</td>
+            <td>{{ category.slug }}</td>
+            <td>
+                <a href="{% url 'category_edit' category.pk %}">Изменить</a>
+                · <a href="{% url 'category_delete' category.pk %}">Удалить</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

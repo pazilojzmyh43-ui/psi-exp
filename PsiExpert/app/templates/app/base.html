@@ -1,0 +1,86 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}{{ company.name }}{% endblock %}</title>
+    <meta name="description" content="{{ company.annotation }}">
+    <link rel="icon" href="{% static 'app/content/logo_psy.png' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,560;7..72,680&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'app/css/site.css' %}">
+</head>
+<body>
+    <header class="site-header">
+        <a class="brand" href="{% url 'home' %}">
+            <img src="{% static 'app/content/logo_psy.png' %}" alt="">
+            <span>
+                <strong>{{ company.name }}</strong>
+                <small>Псков</small>
+            </span>
+        </a>
+        {% with url_name=request.resolver_match.url_name %}
+        <nav class="nav" aria-label="Разделы сайта">
+            <a class="{% if url_name == 'home' %}is-active{% endif %}" href="{% url 'home' %}">Главная</a>
+            <a class="{% if url_name == 'about' %}is-active{% endif %}" href="{% url 'about' %}">О центре</a>
+            <a class="{% if url_name == 'catalog' or url_name == 'catalog_category' or url_name == 'service_detail' %}is-active{% endif %}" href="{% url 'catalog' %}">Каталог</a>
+            <a class="{% if url_name == 'news_list' or url_name == 'news_detail' %}is-active{% endif %}" href="{% url 'news_list' %}">Новости</a>
+            <a class="{% if url_name == 'materials' %}is-active{% endif %}" href="{% url 'materials' %}">Полезные материалы</a>
+            <a class="{% if url_name == 'contacts' %}is-active{% endif %}" href="{% url 'contacts' %}">Контакты</a>
+            {% if user_role == 'client' %}
+                <a class="{% if url_name == 'cart' or url_name == 'checkout' %}is-active{% endif %}" href="{% url 'cart' %}">Корзина{% if cart_count %} <b>{{ cart_count }}</b>{% endif %}</a>
+                <a class="{% if url_name == 'my_orders' or url_name == 'order_edit' %}is-active{% endif %}" href="{% url 'my_orders' %}">Мои заказы</a>
+            {% elif user_role == 'manager' %}
+                <a class="{% if url_name == 'manager_orders' %}is-active{% endif %}" href="{% url 'manager_orders' %}">Заказы</a>
+            {% elif user_role == 'admin' %}
+                <a href="{% url 'panel' %}">Панель</a>
+            {% else %}
+                <a class="{% if url_name == 'login' %}is-active{% endif %}" href="{% url 'login' %}">Вход</a>
+                <a class="{% if url_name == 'register' %}is-active{% endif %}" href="{% url 'register' %}">Регистрация</a>
+            {% endif %}
+        </nav>
+        {% endwith %}
+        {% if user.is_authenticated %}
+        <div class="who">
+            <span>
+                <strong>{{ user.first_name|default:user.username }}</strong>
+                <small>
+                    {% if user_role == 'admin' %}администратор
+                    {% elif user_role == 'manager' %}менеджер
+                    {% else %}клиент{% endif %}
+                </small>
+            </span>
+            <form method="post" action="{% url 'logout' %}">
+                {% csrf_token %}
+                <button type="submit">Выйти</button>
+            </form>
+        </div>
+        {% endif %}
+    </header>
+
+    {% if messages %}
+    <div class="messages">
+        {% for message in messages %}
+        <p class="msg msg--{{ message.tags }}">{{ message }}</p>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="site-footer">
+        <div>
+            <strong>{{ company.legal }}</strong>
+            <p>{{ company.address }}</p>
+            <p>{{ company.phones.0 }} · {{ company.hours }}</p>
+        </div>
+        <div>
+            <p class="note">{{ company.developer }}</p>
+        </div>
+    </footer>
+</body>
+</html>

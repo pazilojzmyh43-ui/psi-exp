@@ -1,0 +1,46 @@
+{% extends "app/base.html" %}
+{% load static %}
+{% block title %}{{ company.name }} — главная{% endblock %}
+{% block content %}
+<section class="hero">
+    <div class="hero-copy">
+        <p class="kicker">Первый Псковский профессиональный психологический центр</p>
+        <h1>{{ company.name }}</h1>
+        <p class="lead">{{ company.annotation }}</p>
+        <div class="actions">
+            <a class="btn" href="{% url 'catalog' %}">Смотреть каталог</a>
+            <a class="btn ghost" href="{% url 'contacts' %}">Как записаться</a>
+        </div>
+    </div>
+    <div class="hero-photo" style="background-image: url('{% static 'app/content/banner1.jpg' %}');" role="img" aria-label="Спокойное пространство для разговора"></div>
+</section>
+
+<section>
+    <h2>Направления</h2>
+    <div class="grid cols-3">
+        {% for category in categories %}
+        <a class="card" href="{% url 'catalog_category' category.slug %}" style="text-decoration:none;color:inherit;">
+            <p class="kicker">Категория</p>
+            <h3>{{ category.name }}</h3>
+            <p class="meta">{{ category.description }}</p>
+        </a>
+        {% empty %}
+        <p>Категории ещё не добавлены.</p>
+        {% endfor %}
+    </div>
+</section>
+
+<section style="margin-top:36px;">
+    <h2>Последние новости</h2>
+    {% for item in news_list %}
+    <article class="news-item">
+        <p class="meta">{{ item.published_at|date:"d.m.Y" }}</p>
+        <h2><a href="{% url 'news_detail' item.pk %}">{{ item.title }}</a></h2>
+        <p>{{ item.text|truncatewords:28 }}</p>
+    </article>
+    {% empty %}
+    <p>Новостей пока нет.</p>
+    {% endfor %}
+    <p><a href="{% url 'news_list' %}">Все новости</a></p>
+</section>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends "app/base.html" %}
+{% block title %}Контакты — {{ company.name }}{% endblock %}
+{% block content %}
+<h1>Контакты</h1>
+<div class="grid cols-2">
+    <article class="card">
+        <h3>Записаться</h3>
+        <p><strong>Телефон:</strong> <a href="tel:+79113778811">{{ company.phones.0 }}</a></p>
+        <p><strong>WhatsApp:</strong> <a href="{{ company.whatsapp }}">{{ company.telegram_label }}</a></p>
+        <p><strong>Telegram:</strong> <a href="{{ company.telegram }}">{{ company.telegram_label }}</a></p>
+        <p>{{ company.address }}</p>
+        <p>{{ company.hours }}</p>
+        <p>Можно и через сайт: зарегистрируйтесь как клиент и оформите запись из каталога.</p>
+    </article>
+    <article class="card">
+        <h3>Как проходит запись</h3>
+        <ol>
+            <li>Напишите, позвоните или оформите заказ на сайте.</li>
+            <li>Договоримся о бесплатной предварительной консультации.</li>
+            <li>Если формат подходит — переходим к платным сессиям.</li>
+        </ol>
+        <h3>Разработчик сайта</h3>
+        <p class="note">{{ company.developer }}</p>
+    </article>
+</div>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends "app/base.html" %}
+{% block title %}Регистрация — {{ company.name }}{% endblock %}
+{% block content %}
+<h1>Регистрация</h1>
+<p class="lead">После регистрации вы получаете роль клиента и можете оформлять запись.</p>
+<form method="post" class="card auth-card">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="btn" type="submit">Создать учётную запись</button>
+    <p>Уже есть логин? <a href="{% url 'login' %}">Войти</a></p>
+</form>
+{% endblock %}
